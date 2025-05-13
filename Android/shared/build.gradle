@@ -1,0 +1,91 @@
+plugins {
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
+}
+
+android {
+    namespace 'cafe.sofie.beacon.shared'
+    compileSdk 35
+
+    ndkVersion "29.0.13113456"
+
+    defaultConfig {
+        minSdk 34
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+
+    sourceSets {
+        main.java.srcDirs += "${projectDir}/../../shared_types/generated/java"
+    }
+}
+
+dependencies {
+    implementation(libs.jna) {
+        artifact {
+            type = "aar"
+        }
+    }
+
+    implementation libs.androidx.core.ktx
+    implementation libs.androidx.appcompat
+    implementation libs.material
+    testImplementation libs.junit
+    androidTestImplementation libs.androidx.junit
+    androidTestImplementation libs.androidx.espresso.core
+}
+
+apply plugin: 'com.github.willir.rust.cargo-ndk-android'
+
+cargoNdk {
+    module = "../shared"
+    targetDirectory = "../target"
+}
+
+afterEvaluate {
+    tasks.named("compileDebugKotlin") {
+        it.dependsOn(tasks.named("typesGen"), tasks.named("bindGen"))
+    }
+}
+
+tasks.register('bindGen', Exec) {
+    def outDir = "${projectDir}/../../shared_types/generated/java"
+    workingDir "../../"
+    if (System.getProperty('os.name').toLowerCase().contains('windows')) {
+        commandLine("cmd", "/c",
+                "cargo build --package shared --bin uniffi-bindgen && " + "target\\debug\\uniffi-bindgen generate shared\\src\\shared.udl " + "--language kotlin " + "--out-dir " + outDir.replace('/', '\\'))
+    } else {
+        commandLine("sh", "-c",
+                """\
+                cargo build --package shared --bin uniffi-bindgen && \
+                target/debug/uniffi-bindgen generate shared/src/shared.udl \
+                --language kotlin \
+                --out-dir $outDir
+                """)
+    }
+}
+
+tasks.register('typesGen', Exec) {
+    workingDir "../../"
+    if (System.getProperty('os.name').toLowerCase().contains('windows')) {
+        commandLine("cmd", "/c", "cargo build -p shared_types")
+    } else {
+        commandLine("sh", "-c", "cargo build -p shared_types")
+    }
+}

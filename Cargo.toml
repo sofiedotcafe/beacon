@@ -1,0 +1,22 @@
+[workspace]
+members = [
+    "shared",
+    "shared_types"
+]
+resolver = "1"
+
+[workspace.package]
+authors = ["Sofie Halenius <sofie.halenius@sofie.cafe>"]
+description = "Locate and track Apple Airtags® with ease, regardless of the platform you are using."
+edition = "2021"
+version = "0.1.0"
+repository = "https://github.com/sofiedotcafe/beacon"
+license = "GPL-3.0-or-later"
+keywords = ["gnome", "find-my", "openhaystack", "android", "crux"]
+rust-version = "1.66"
+
+[workspace.dependencies]
+anyhow = "1.0.98"
+crux_core = "0.14.0"
+crux_http = "0.13.0"
+serde = "1.0.219"
