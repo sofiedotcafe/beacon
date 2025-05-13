@@ -1,0 +1,39 @@
+<!-- markdownlint-disable MD033 MD013-->
+# Beacon
+
+<a href="https://stopthemingmy.app"><img src="https://stopthemingmy.app/badge.svg" alt="Built with Nix" height="23"/></a>
+<a href="https://builtwithnix.org"><img src="https://builtwithnix.org/badge.svg" alt="Built with Nix" height="24"/></a><br>
+Locate and track Apple Airtags® with ease, regardless of the platform you are using.
+
+## Overview
+
+Beacon is a simple, elegant app and a framework built to integrate with Apple’s Find My® network. It allows you to track existing AirTags® and provides a foundation to make other Bluetooth®-capable devices Find My®-compatible.
+
+The project builds upon the functionality of [OpenHaystack](https://github.com/seemoo-lab/openhaystack) and the authentication mechanisms of [Macless-Haystack](https://github.com/dchristl/macless-haystack). The entire codebase has been rewritten in Rust to improve performance and maintainability making it possible to leverage [Crux](https://github.com/redbadger/crux) to deliver a seamless, platform-native user experience across multiple platforms, including Android.
+
+As part of the **GNOME Circle** project, Beacon adheres to GNOME's principles of usability, accessibility, and seamless integration with the GNOME ecosystem.
+
+## Code Of Conduct
+
+This project follows the [GNOME Code of Conduct](https://conduct.gnome.org/).
+
+## Credits
+
+This project makes use of or is based on the following software and libraries:
+
+- **Macless-Haystack** (Version 2.6.1) by dchristl (2023). Available at: [https://github.com/dchristl/macless-haystack](https://github.com/dchristl/macless-haystack)
+- **OpenHaystack** (Version 0.5.3) by Heinrich, A., Stute, M., & Hollick, M. (2023). Available at: [https://github.com/seemoo-lab/openhaystack](https://github.com/seemoo-lab/openhaystack)
+
+## Disclaimer
+
+Beacon is not affiliated with or endorsed by Apple Inc. "Apple" and "AirTags" are trademarks of Apple Inc., mentioned here solely for descriptive purposes.
+
+This project is intended for research and educational purposes. Use it responsibly and at your own risk.
+
+## License
+
+The code in this repository is licensed under the GNU General Public License v3 (GPLv3). For more details, see the [LICENSE](LICENSE) file.
+
+This project is functionally based on [OpenHaystack](https://github.com/seemoo-lab/openhaystack) and authentication-wise on [Macless-Haystack](https://github.com/dchristl/macless-haystack), which were originally licensed under the Affero General Public License (AGPL).
+
+[GPL-3 License](LICENSE) © [sofiedotcafe](https://sofie.cafe)
