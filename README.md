@@ -13,7 +13,7 @@ The project builds upon the functionality of [OpenHaystack](https://github.com/s
 
 ## GNOME Circle
 
-> [!info] 
+> [!IMPORTANT] 
 > As a candidate for the **GNOME Circle** project, Beacon adheres to GNOME's principles of usability, accessibility, and seamless integration with the GNOME ecosystem. This project is not yet officially accepted into GNOME Circle.
 
 ## Code Of Conduct
