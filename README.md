@@ -11,14 +11,14 @@ Beacon is a simple, elegant app and a framework built to integrate with Apple’
 
 The project builds upon the functionality of [OpenHaystack](https://github.com/seemoo-lab/openhaystack) and the authentication mechanisms of [Macless-Haystack](https://github.com/dchristl/macless-haystack). The entire codebase has been rewritten in Rust to improve performance and maintainability making it possible to leverage [Crux](https://github.com/redbadger/crux) to deliver a seamless, platform-native user experience across multiple platforms, including Android.
 
-## GNOME Circle
-
-> [!IMPORTANT] 
-> As a candidate for the **GNOME Circle** project, Beacon adheres to GNOME's principles of usability, accessibility, and seamless integration with the GNOME ecosystem. This project is not yet officially accepted into GNOME Circle.
-
 ## Code Of Conduct
 
 This project follows the [GNOME Code of Conduct](https://conduct.gnome.org/).
+
+## GNOME Circle accreditation
+
+> [!IMPORTANT] 
+> As a candidate for the **GNOME Circle** project, Beacon adheres to GNOME's principles of usability, accessibility, and seamless integration with the GNOME ecosystem. This project is not yet officially accepted into GNOME Circle.
 
 ## Credits
 
